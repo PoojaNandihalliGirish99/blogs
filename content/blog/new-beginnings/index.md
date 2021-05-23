@@ -1,108 +1,164 @@
 ---
-title: New Beginnings
+title: React CSS
 date: "2015-05-28T22:40:32.169Z"
-description: This is a custom description for SEO and Open Graph purposes, rather than the default generated excerpt. Simply add a description field to the frontmatter.
+description: It's different but not too much!
 ---
 
-Far far away, behind the word mountains, far from the countries Vokalia and
-Consonantia, there live the blind texts. Separated they live in Bookmarksgrove
-right at the coast of the Semantics, a large language ocean. A small river named
-Duden flows by their place and supplies it with the necessary regelialia.
+##### Inline Styling
 
-## On deer horse aboard tritely yikes and much
+The inline style attribute, the value must be a JavaScript object:
+Here `color`, `textAlign` are called properties.Notice that they are camelCased.
 
-The Big Oxmox advised her not to do so, because there were thousands of bad
-Commas, wild Question Marks and devious Semikoli, but the Little Blind Text
-didn’t listen. She packed her seven versalia, put her initial into the belt and
-made herself on the way.
+Example:
 
-- This however showed weasel
-- Well uncritical so misled
-  - this is very interesting
-- Goodness much until that fluid owl
+```
+class Example extends React.Component {
+  render() {
+    return (
+      <div>
+      <h1 style={{color: "red", textAlign:"center"}}>Welcome</h1>
+      </div>
+    );
+  }
+}
+```
 
-When she reached the first hills of the **Italic Mountains**, she had a last
-view back on the skyline of her hometown _Bookmarksgrove_, the headline of
-[Alphabet Village](http://google.com) and the subline of her own road, the Line
-Lane. Pityful a rhetoric question ran over her cheek, then she continued her
-way. On her way she met a copy.
+##### Javascript object
 
-### Overlaid the jeepers uselessly much excluding
+Create an object with styling information, and refer to it in the style attribute.
 
-But nothing the copy said could convince her and so it didn’t take long until a
-few insidious Copy Writers ambushed her, made her drunk with
-[Longe and Parole](http://google.com) and dragged her into their agency, where
-they abused her for their projects again and again. And if she hasn’t been
-rewritten, then they are still using her.
+Example:
 
-> Far far away, behind the word mountains, far from the countries Vokalia and
-> Consonantia, there live the blind texts. Separated they live in Bookmarksgrove
-> right at the coast of the Semantics, a large language ocean.
+```
+class JSObjectExample extends React.Component {
+  render() {
+    const yourStyle = {
+      // comma seperated property and value pairs
+      color: "Green",
+      textAlign: "center,
+      backgroundColor: "lightBlue",
+      padding: "10px",
+      fontFamily: "Arial"
+    };
+    return (
+      <div>
+      <h1 style={yourStyle}>Hello. Isn't this easy...</h1>
+      <p>A B ..... Y Z</p>
+      </div>
+    );
+  }
+}
 
-It is a paradisematic country, in which roasted parts of sentences fly into your
-mouth. Even the all-powerful Pointing has no control about the blind texts it is
-an almost unorthographic life One day however a small line of blind text by the
-name of Lorem Ipsum decided to leave for the far World of Grammar.
+ReactDOM.render(<JSObjectExample />, document.getElementById('root'));
+```
 
-### According a funnily until pre-set or arrogant well cheerful
+Before learning further types, know that,
+to specify a CSS class, we use the `className` attribute for styling JSX unlike how we use `class` attribute for styling HTML.
 
-The Big Oxmox advised her not to do so, because there were thousands of bad
-Commas, wild Question Marks and devious Semikoli, but the Little Blind Text
-didn’t listen. She packed her seven versalia, put her initial into the belt and
-made herself on the way.
+##### CSS stylesheets
 
-1.  So baboon this
-2.  Mounted militant weasel gregariously admonishingly straightly hey
-3.  Dear foresaw hungry and much some overhung
-4.  Rash opossum less because less some amid besides yikes jeepers frenetic
-    impassive fruitlessly shut
+**App.css**
 
-When she reached the first hills of the Italic Mountains, she had a last view
-back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet
-Village and the subline of her own road, the Line Lane. Pityful a rhetoric
-question ran over her cheek, then she continued her way. On her way she met a
-copy.
+```
+// switch to your normal css - you are free now. No camelCase here!
+body {
+  background-color: #282c34;
+  color: white;
+  padding: 40px;
+  font-family: Arial;
+  text-align: center;
+}
+```
 
-> The copy warned the Little Blind Text, that where it came from it would have
-> been rewritten a thousand times and everything that was left from its origin
-> would be the word "and" and the Little Blind Text should turn around and
-> return to its own, safe country.
+---
 
-But nothing the copy said could convince her and so it didn’t take long until a
-few insidious Copy Writers ambushed her, made her drunk with Longe and Parole
-and dragged her into their agency, where they abused her for their projects
-again and again. And if she hasn’t been rewritten, then they are still using
-her. Far far away, behind the word mountains, far from the countries Vokalia and
-Consonantia, there live the blind texts.
+```
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './App.css'; //importing is important you know
 
-#### Silent delightfully including because before one up barring chameleon
+class Example extends React.Component {
+  render() {
+    return (
+      <div>
+      <h1>Hello</h1>
+      <p>Style is a way to say who you are without having to speak.</p>
+      <img src="" alt="" />
+      </div>
+    );
+  }
+}
 
-Separated they live in Bookmarksgrove right at the coast of the Semantics, a
-large language ocean. A small river named Duden flows by their place and
-supplies it with the necessary regelialia. It is a paradisematic country, in
-which roasted parts of sentences fly into your mouth.
+ReactDOM.render(<Example />, document.getElementById('root'));
+```
 
-Even the all-powerful Pointing has no control about the blind texts it is an
-almost unorthographic life One day however a small line of blind text by the
-name of Lorem Ipsum decided to leave for the far World of Grammar. The Big Oxmox
-advised her not to do so, because there were thousands of bad Commas, wild
-Question Marks and devious Semikoli, but the Little Blind Text didn’t listen.
+##### CSS modules
 
-##### Wherever far wow thus a squirrel raccoon jeez jaguar this from along
+CSS Modules are regular stylesheets using the `[name].module.css` file naming convention.
 
-She packed her seven versalia, put her initial into the belt and made herself on
-the way. When she reached the first hills of the Italic Mountains, she had a
-last view back on the skyline of her hometown Bookmarksgrove, the headline of
-Alphabet Village and the subline of her own road, the Line Lane. Pityful a
-rhetoric question ran over her cheek, then she continued her way. On her way she
-met a copy.
+_CSS Modules let you use the same CSS class name in different files without worrying about naming clashes._
 
-###### Slapped cozy a that lightheartedly and far
+**MovieDetails.module.css**
 
-The copy warned the Little Blind Text, that where it came from it would have
-been rewritten a thousand times and everything that was left from its origin
-would be the word "and" and the Little Blind Text should turn around and return
-to its own, safe country. But nothing the copy said could convince her and so it
-didn’t take long until a few insidious Copy Writers ambushed her, made her drunk
-with Longe and Parole and dragged her into their agency, where they abused her
-for their projects again and again.
+```
+//this is a css module file
+
+.card {
+  background-color: red;
+  color: white;
+  text-align: center;
+}
+
+...so on..
+```
+
+---
+
+**regular-stylesheet.css**
+
+```
+//this is a normal css file
+
+body{
+  background-color: lighblue;
+  matgin:0 auto;
+}
+.card {
+  color: red;
+}
+```
+
+---
+
+**MovieDetail.js**
+
+```
+//this is a component file
+
+import React, { Component } from 'react';
+
+import styles from './Button.module.css';
+import './another-stylesheet.css';
+
+class MovieDetails extends Component {
+  render() {
+    // reference as a js object
+    return (
+    <div className={styles.card}>
+      <img src="..." className="card-img-top" alt="...">
+      <div className="card-body">
+        <h5 className="card">Card title</h5>
+        <p className="card-text">Some quick example text to build on
+        the card titleand make up the bulk of the card's content.</p>
+        <a href="#" className="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+    );
+  }
+}
+```
+
+**Results**
+The `styles.card` is referenced to the main div in render function and hence the properties mentioned in module will be applied.
+
+So.... what will be the color of the card title? Red or White?
